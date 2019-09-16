@@ -1,0 +1,32 @@
+{
+  "name": "reasonml-talk",
+  "version": "1.0.0",
+  "description": "Intro to ReasonML! ⚡️",
+  "main": "deck.mdx",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx --no-html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kutyel/reasonml-talk.git"
+  },
+  "keywords": [
+    "fp",
+    "reason",
+    "reasonml"
+  ],
+  "author": "kutyel <flaviocorpa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kutyel/reasonml-talk/issues"
+  },
+  "homepage": "https://github.com/kutyel/reasonml-talk#readme",
+  "devDependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "file-loader": "^2.0.0",
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.3"
+  }
+}

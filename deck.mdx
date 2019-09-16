@@ -1,0 +1,33 @@
+import { Image, Appear } from 'mdx-deck'
+import { dark } from 'mdx-deck/themes'
+import { Split } from 'mdx-deck/layouts'
+import Layout from './layout.js'
+import codeSurfer from 'prism-react-renderer/themes/nightOwl'
+export { components } from 'mdx-deck-code-surfer'
+export const theme = {
+  ...dark,
+  codeSurfer,
+  monospace: '"Dank Mono", "Fira Code", Consolas, "Roboto Mono", monospaced',
+  colors: {
+    text: 'rgb(214, 222, 235)',
+    code: 'rgb(130, 170, 255)',
+    link: 'rgb(128, 203, 196)',
+    background: 'rgb(1, 22, 39)',
+  },
+}
+
+# What Happens If You Let The Creator of React Design a Programming Language
+
+---
+
+<Image src={require('file-loader!./img/jordan.png')} />
+
+---
+
+export default Layout
+
+# Thanks! ☺️
+
+---
+
+<Image src={require('file-loader!./img/ending.png')} />
