@@ -1,6 +1,6 @@
 import { Image, Appear } from 'mdx-deck'
 import { dark } from 'mdx-deck/themes'
-import { Split } from 'mdx-deck/layouts'
+import { Split, SplitRight } from 'mdx-deck/layouts'
 import Layout from './layout.js'
 import codeSurfer from 'prism-react-renderer/themes/nightOwl'
 export { components } from 'mdx-deck-code-surfer'
@@ -34,6 +34,14 @@ export const theme = {
 
 export default Layout
 
+### FP in JavaScript? Sure!
+
+<Image src={require('file-loader!./img/fox.png')} width="50vw" height="80vh" />
+
+---
+
+export default Layout
+
 ## What is ReasonML?
 
 ---
@@ -44,11 +52,23 @@ export default Layout
 
 export default Layout
 
+## ReasonML vs JavaScript Cheatsheet
+
+| Prop    | Type                     | Description           |
+| ------- | ------------------------ | --------------------- |
+| `width` | number, string, or array | sets element width    |
+| `color` | string                   | sets foreground color |
+| `bg`    | string                   | sets background color |
+
+---
+
+export default Layout
+
 ## ADTs! (_variants_ in Reason)
 
 ---
 
-```reason
+```reason Variants! 🙌🏼
 type state =
   | Error
   | Loading
@@ -64,6 +84,10 @@ type action =
   | DeleteComment(string, string)
   | Like(Post.t, bool)
   | ChangeRoute(Route.t);
+----
+* > ❤️
+2:3 > Sum Types!
+4,8,10:15 > Product Types!!
 ```
 
 ---
@@ -91,6 +115,23 @@ let make = (~posts, ~postId, ~dispatch, ~navigate) =>
       <Comments postId dispatch comments={post.comments} />
     </div>
   };
+----
+* > React component in Reason!
+3:5 > Notice this three magic lines...
+3 > What is this `List.getBy()` function? What is its return type??
+```
+
+---
+
+```reason
+let getBy: (list('a), 'a => bool) => option('a);
+
+// ...
+
+type option('a) = None | Some('a);
+----
+1 > type signature of getBy
+5 > Mmmhh... this sounds familiar!!
 ```
 
 ---
