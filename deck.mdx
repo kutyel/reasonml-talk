@@ -20,7 +20,111 @@ export const theme = {
 
 ---
 
+`$ whoami`
+
+---
+
+<Image src={require('file-loader!./img/me.png')} />
+
+---
+
 <Image src={require('file-loader!./img/jordan.png')} />
+
+---
+
+export default Layout
+
+## What is ReasonML?
+
+---
+
+<Image src={require('file-loader!./img/reason-bridge.png')} />
+
+---
+
+export default Layout
+
+## ADTs! (_variants_ in Reason)
+
+---
+
+```reason
+type state =
+  | Error
+  | Loading
+  | Loaded(Route.t, list(Post.t));
+
+type action =
+  | FetchPosts
+  | FetchComments(string)
+  | FailedToFetch
+  | FetchedPosts(list(Post.t))
+  | FetchedComments(string, list(Comment.t))
+  | AddComment(string, string, string)
+  | DeleteComment(string, string)
+  | Like(Post.t, bool)
+  | ChangeRoute(Route.t);
+```
+
+---
+
+export default Layout
+
+## React with Reason! ⚛️
+
+---
+
+export default Layout
+
+### How does an actual ReasonReact component look like? 🤔
+
+---
+
+```reason
+[@react.component]
+let make = (~posts, ~postId, ~dispatch, ~navigate) =>
+  switch (posts->List.getBy(({Types.Post.id}) => id == postId)) {
+  | None => <Error />
+  | Some(post) =>
+    <div className="single-photo">
+      <Post post dispatch navigate />
+      <Comments postId dispatch comments={post.comments} />
+    </div>
+  };
+```
+
+---
+
+Let's see what happens if we don't use `option()`... (**Maybe** in #Haskell)
+
+---
+
+### DEMO time! ⏱
+
+---
+
+export default Layout
+
+> Make impossible states _actually_ impossible!
+
+---
+
+```reason
+<>
+  <h1>
+    <a href="/" onClick={navigate(Base)}> {React.string("Catstagram")} </a>
+  </h1>
+  {switch (state) {
+  | Error => <Error />
+  | Loading => <Spinner />
+  | Loaded(route, posts) =>
+    switch (route) {
+    | Base => <Grid posts dispatch navigate />
+    | Detail(postId) => <Single posts postId dispatch navigate />
+    }
+  }}
+</>;
+```
 
 ---
 
