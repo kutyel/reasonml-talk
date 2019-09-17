@@ -9,6 +9,10 @@ const Wrapper = styled.main`
   justify-content: center;
   position: relative;
   width: 100vw;
+
+  & > div > div:first-child {
+    height: 90vh !important;
+  }
 `
 
 const Footer = styled.footer`

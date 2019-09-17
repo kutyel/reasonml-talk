@@ -1,6 +1,6 @@
 import { Image, Appear } from 'mdx-deck'
 import { dark } from 'mdx-deck/themes'
-import { Split, SplitRight } from 'mdx-deck/layouts'
+// import { Split, SplitRight } from 'mdx-deck/layouts'
 import Layout from './layout.js'
 import codeSurfer from 'prism-react-renderer/themes/nightOwl'
 export { components } from 'mdx-deck-code-surfer'
@@ -19,6 +19,8 @@ export const theme = {
 # What Happens If You Let The Creator of React Design a Programming Language
 
 ---
+
+export default Layout
 
 `$ whoami`
 
@@ -60,6 +62,8 @@ export default Layout
 | `color` | string                   | sets foreground color |
 | `bg`    | string                   | sets background color |
 
+Mutability is always uglier!! 🙌🏼
+
 ---
 
 export default Layout
@@ -67,6 +71,8 @@ export default Layout
 ## ADTs! (_variants_ in Reason)
 
 ---
+
+export default Layout
 
 ```reason Variants! 🙌🏼
 type state =
@@ -104,7 +110,9 @@ export default Layout
 
 ---
 
-```reason
+export default Layout
+
+```reason Pattern matching! 🙌🏼
 [@react.component]
 let make = (~posts, ~postId, ~dispatch, ~navigate) =>
   switch (posts->List.getBy(({Types.Post.id}) => id == postId)) {
@@ -117,11 +125,19 @@ let make = (~posts, ~postId, ~dispatch, ~navigate) =>
   };
 ----
 * > React component in Reason!
+1 > Annotation to have a minimalistic React component ⚛️
+2[2] > `make` is the equivalent of the `render` function in js...
+2[5:20] > (~) named arguments!
+7:8 > JSX punning! Nice uh? 😉
+3,6 > Everything is an expression, no need for `return`!
 3:5 > Notice this three magic lines...
-3 > What is this `List.getBy()` function? What is its return type??
+3[6:8] > What is this `List.getBy()` function? What is its return type??
+3[5] > Also, WHAT IS THAT WEIRD `->` IS THIS PHP!?!?!? (coming soon...)
 ```
 
 ---
+
+export default Layout
 
 ```reason
 let getBy: (list('a), 'a => bool) => option('a);
@@ -130,17 +146,22 @@ let getBy: (list('a), 'a => bool) => option('a);
 
 type option('a) = None | Some('a);
 ----
-1 > type signature of getBy
-5 > Mmmhh... this sounds familiar!!
+1 > type signature of getBy... 🔍
+3 > that's called `find` in JS! Why it's not called the same!? 🤷🏼‍♂️
+5 > Mmmhh... this sounds familiar!! 🤔
 ```
 
 ---
+
+export default Layout
 
 Let's see what happens if we don't use `option()`... (**Maybe** in #Haskell)
 
 ---
 
-### DEMO time! ⏱
+export default Layout
+
+### DEMO time! 🐈⏱
 
 ---
 
@@ -149,6 +170,8 @@ export default Layout
 > Make impossible states _actually_ impossible!
 
 ---
+
+export default Layout
 
 ```reason
 <>
@@ -165,13 +188,27 @@ export default Layout
     }
   }}
 </>;
+----
+* > Coding suddenly becomes modelling your data with the proper data structure!!
+5,9 > Pattern match the universe! 🤓
+6,7,10,11 > Where are the imports?? EVERY FILE IS A MODULE! 📦
 ```
 
 ---
 
 export default Layout
 
-# Thanks! ☺️
+# Honorable Mentions
+
+- // TODO:
+- GenType
+- Gravitron
+
+---
+
+export default Layout
+
+# Thanks! 😸
 
 ---
 
