@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from '@emotion/styled'
+import { Split as S, SplitRight as SR } from 'mdx-deck/layouts'
 
 const Wrapper = styled.main`
   align-items: center;
@@ -9,6 +10,14 @@ const Wrapper = styled.main`
   justify-content: center;
   position: relative;
   width: 100vw;
+
+  & > div[class*='Split'] {
+    height: 90vh;
+  }
+
+  & h1 {
+    padding-top: 2rem;
+  }
 
   & > div > div:first-child {
     height: 90vh !important;
@@ -34,6 +43,18 @@ const Layout = ({ children }) => (
       <span>@FlavioCorpa</span>
     </Footer>
   </Fragment>
+)
+
+export const Split = ({ children, ...props }) => (
+  <Layout>
+    <S {...props}>{children}</S>
+  </Layout>
+)
+
+export const SplitRight = ({ children, ...props }) => (
+  <Layout>
+    <SR {...props}>{children}</SR>
+  </Layout>
 )
 
 export default Layout
