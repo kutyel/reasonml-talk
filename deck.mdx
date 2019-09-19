@@ -284,11 +284,70 @@ export default Layout
 
 export default Layout
 
-# Honorable Mentions
+```reason Use your favourite hooks! 🥰
+type action =
+  | Tick;
 
-- // TODO:
-- GenType
-- Gravitron
+type state = {
+  count: int,
+};
+
+[@react.component]
+let make = () => {
+  let (state, dispatch) = React.useReducer(
+    (state, action) =>
+      switch (action) {
+      | Tick => {count: state.count + 1}
+      },
+    {count: 0}
+  );
+
+  React.useEffect0(() => {
+    let timerId = Js.Global.setInterval(() => dispatch(Tick), 1000);
+    Some(() => Js.Global.clearInterval(timerId))
+  });
+
+  <div>{ReasonReact.string(string_of_int(state.count))}</div>;
+};
+----
+* > Does this sound familiar?
+10:15 > useReducer() with pattern matching! 🤓
+18:21 > do side effects safely with useEffect() ⏳
+20 > ️⚠️ Catch: since everything needs to return something, `useEffect()` must return `option()`!
+```
+
+---
+
+export default Layout
+
+## Honorable Mentions:
+
+---
+
+export default Layout
+
+`https://github.com/cristianoc/genType`
+
+<iframe
+  width="1024"
+  height="600"
+  src="https://www.youtube.com/embed/EV12EbxCPjM"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen
+></iframe>
+
+_"Type once, use forever!" -Cristiano Calcagno_
+
+---
+
+export default Layout
+
+`https://github.com/jaredly/gravitron`
+
+![gravitron](https://github.com/jaredly/gravitron/raw/master/gameplay.gif)
+
+A game in Reason that compiles to **native** iOS and **native** Android! 😱
 
 ---
 
