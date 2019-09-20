@@ -1,4 +1,4 @@
-import { Image, Appear } from 'mdx-deck'
+import { Image, Notes } from 'mdx-deck'
 import { dark } from 'mdx-deck/themes'
 import Layout, { Split } from './layout'
 import codeSurfer from 'prism-react-renderer/themes/nightOwl'
@@ -6,7 +6,7 @@ export { components } from 'mdx-deck-code-surfer'
 export const theme = {
   ...dark,
   codeSurfer,
-  monospace: '"Dank Mono", "Fira Code", Consolas, "Roboto Mono", monospaced',
+  monospace: '"Dank Mono", "Fira Code", Consolas, "Roboto Mono", monospace',
   colors: {
     text: 'rgb(214, 222, 235)',
     code: 'rgb(130, 170, 255)',
@@ -37,13 +37,20 @@ export default Layout
 
 ### FP in JavaScript? Sure!
 
-<Image src={require('file-loader!./img/fox.png')} width="50vw" height="80vh" />
+<img src={require('file-loader!./img/fox.png')} />
 
 ---
 
 export default Layout
 
 ## What is ReasonML?
+
+<Notes>
+  <li>Typed FP provided by OCaml</li>
+  <li>Type inference of all the ML family</li>
+  <li>Leverages the ecosystem of both JavaScript and OCaml</li>
+  <li>Standing on the shoulder of giants (OCaml 20+ years)</li>
+</Notes>
 
 ---
 
@@ -107,7 +114,7 @@ type action =
 export default Layout
 
 ```reason Records! 😲
-type Post = {
+type post = {
   id: string,
   caption: Caption.t,
   images: Images.t,
@@ -118,6 +125,8 @@ type Post = {
 };
 ----
 * > Syntactic sugar for Product Types! 💄
+8 > types look a bit like functions `list()`
+8[6] > Module.t (type) is a convention 😉
 ```
 
 ---
@@ -125,31 +134,29 @@ type Post = {
 export default Layout
 
 ```reason Pattern matching! 🙌🏼
-switch (myList) {
-| [] => print_endline("Empty list")
-| [a] => print_endline("Only one element in the list!")
-| [a, ...rest] => print_endline("list with the head value " ++ a)
-};
+let { path } = ReasonReactRouter.useUrl();
 
-let message =
-  switch (data) {
-  | GoodResult(msg) => "Success! " ++ msg
-  | BadResult(0 | 1 | 5) => "Something's wrong. It's a server side problem."
-  | OtherError | BadResult(500) => "OH OH..."
-  | BadResult(err) => "Unknown error occurred. Code: " ++ string_of_int(err)
-  | _ => "nothing to do here!"
-  };
+switch (path) {
+| ["book", id, "edit"] => handleBookEdit(id)
+| ["book", id] => getBook(id)
+| ["book", id, _] => noSuchBookOperation()
+| [] => showMainPage()
+| ["shop"]
+| ["shop", "index"] => showShoppingPage()
+| ["shop", ...rest] => nestedMatch(rest)
+| _ => showNotFoundPage()
+};
 ----
 * > The Bread & Butter of ReasonML! 🥪
-2 > Lists in Reason/OCaml are immutable, singly linked lists... O(1)
-3 > Pattern match on whatever you need!
-4 > Use familiar, JavaScript-like syntax 😉
-6:8,14 > Bind the result of the pattern match to `message`
-9 > happy path!
-10 > pattern match on values (or types!)
-11 > re-use patterns! (Haskell 😭)
-12 > type conversions are needed...
-13 > default pattern!
+1 > JS "destructuring" is just a pattern match
+3, 12 > `switch` on steroids! 💪🏼
+4 > Pattern match on whatever you need!
+5 > Delegate to other functions logic handling
+6 > Use wildcards `_` as part of the pattern!
+7 > Lists in Reason/OCaml are singly linked lists O(1)
+8, 9 > re-use patterns! (Haskell 😭)
+10 > Use familiar, JavaScript-like syntax 😉
+11 > default pattern!
 ```
 
 ---
