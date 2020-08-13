@@ -1,8 +1,19 @@
 import { Image, Notes } from 'mdx-deck'
 import { dark } from 'mdx-deck/themes'
-import Layout, { Split } from './layout'
+import Footer from 'mdx-deck-footer'
+import { Split as S } from 'mdx-deck/layouts'
 import codeSurfer from 'prism-react-renderer/themes/nightOwl'
 export { components } from 'mdx-deck-code-surfer'
+const Layout = ({ children }) => (
+  <Footer conf="LambdAle 🍺" speaker="@FlavioCorpa">
+    {children}
+  </Footer>
+)
+const Split = ({ children, ...props }) => (
+  <Footer>
+    <S {...props}>{children}</S>
+  </Footer>
+)
 export const theme = {
   ...dark,
   codeSurfer,
