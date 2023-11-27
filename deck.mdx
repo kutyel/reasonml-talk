@@ -142,6 +142,73 @@ type post = {
 
 export default Layout
 
+## Things have not always been perfect from the beginning...
+
+---
+
+export default Layout
+
+```reason Url Parsing...
+import Url.Parser exposing (Parser, (</>), int, map, oneOf, s, string)
+
+type Route
+  = Topic String
+  | Blog Int
+  | User String
+  | Comment String Int
+
+routeParser : Parser (Route -> a) a
+routeParser =
+  oneOf
+    [ map Topic   (s "topic" </> string)
+    , map Blog    (s "blog" </> int)
+    , map User    (s "user" </> string)
+    , map Comment (s "user" </> string </> s "comment" </> int)
+    ]
+----
+* > Recommended way of dealing with routes requires parser combinators...
+9 > Look at this weird type signature! 🤯
+```
+
+---
+
+export default Layout
+
+```reason Enter elm-app-url!
+import AppUrl exposing (AppUrl)
+
+type Route
+  = Topic String
+  | Blog Int
+  | User String
+  | Comment String Int
+
+parse : AppUrl -> Maybe Route
+parse url =
+    case url.path of
+        [ "topic", topic ] ->
+            Just <| Topic topic
+
+        [ "blog", blogId ] ->
+            Maybe.map Blog <| String.toInt blogId
+
+        [ "user", user ] ->
+            Just <| User user
+
+        [ "blog", user, "comment", commentId ] ->
+            Maybe.map (Comment user) <| String.toInt commentId
+
+        _ ->
+            Nothing
+----
+* > Much better API (IMHO, looks like ReasonML)
+9:25 > Parsing routes became just a simple plattern match! 🪄
+```
+
+---
+
+export default Layout
+
 ```reason Pattern matching! 🙌🏼
 let { path } = ReasonReactRouter.useUrl();
 
