@@ -5,7 +5,7 @@ import { Split as S } from 'mdx-deck/layouts'
 import codeSurfer from 'prism-react-renderer/themes/nightOwl'
 export { components } from 'mdx-deck-code-surfer'
 const Layout = ({ children }) => (
-  <Footer conf="LambdAle 🍺" speaker="@FlavioCorpa">
+  <Footer conf="Alicante Frontend 🌊" speaker="@FlavioCorpa">
     {children}
   </Footer>
 )
@@ -17,7 +17,7 @@ const Split = ({ children, ...props }) => (
 export const theme = {
   ...dark,
   codeSurfer,
-  monospace: '"Dank Mono", "Fira Code", Consolas, "Roboto Mono", monospace',
+  monospace: '"Operator Mono Lig", "Dank Mono", "Fira Code", Consolas, "Roboto Mono", monospace',
   colors: {
     text: 'rgb(214, 222, 235)',
     code: 'rgb(130, 170, 255)',
@@ -26,7 +26,7 @@ export const theme = {
   },
 }
 
-<Image src={require('file-loader!./img/cover.png')} />
+<Image src={require('file-loader!./img/cover.jpeg')} />
 
 ---
 
@@ -40,10 +40,6 @@ export default Layout
 
 ---
 
-<Image src={require('file-loader!./img/jordan.png')} />
-
----
-
 export default Layout
 
 ### FP in JavaScript? Sure!
@@ -54,39 +50,41 @@ export default Layout
 
 export default Layout
 
-## What is ReasonML?
+## What is Elm? 🌳
 
 <Notes>
-  <li>Typed FP provided by OCaml</li>
-  <li>Type inference of all the ML family</li>
-  <li>Leverages the ecosystem of both JavaScript and OCaml</li>
-  <li>Standing on the shoulder of giants (OCaml 20+ years)</li>
+  <li>Friendly error messages</li>
+  <li>Small subset of Haskell, simpler than JavaScript</li>
+  <li>Static Types, pure Functional programming</li>
+  <li>Algebraic Data Types and pattern matching!</li>
+  <li>NO RUNTIME ERRORS!</li>
+  <li>Interop via ports/flags and web components</li>
 </Notes>
-
----
-
-<Image src={require('file-loader!./img/reason-bridge.png')} />
 
 ---
 
 export default Layout
 
-## ReasonML vs. JavaScript Cheatsheet
+## JavaScript vs. Elm Cheatsheet
 
-| JavaScript                              | Reason                                                  |
-| --------------------------------------- | ------------------------------------------------------- |
-| `const x = 5;`                          | `let x = 5;`                                            |
-| `var x = y;`                            | No equivalent! 🚀                                       |
-| `let x = 5; x = x + 1;`                 | `let x = ref(5); x := x^ + 1;`                          |
-| `const add = a => b => a + b;`          | `let add = (a, b) => a + b;` **(curry by default! 🙌🏼)** |
-| `'hello' + ' world'`                    | `"hello" ++ " world"` (single quotes are `char`)        |
-| No deep equality (recursive compare)    | `a == b`, `a != b`                                      |
-| `a == b`                                | No equality with implicit casting _(thankfully)_        |
-| `[1, 2, 3]`                             | `[| 1, 2, 3 |]`                                         |
-| No immutable list built-in the language | `[1, 2, 3]`                                             |
-| `null`, `undefined`                     | `None` (no null bugs, only the type `option()`! 👏🏼)     |
 
-Mutability is always uglier!! 🙌🏼
+<Image src={require('file-loader!./img/syntax1.png')} />
+
+---
+
+<Image src={require('file-loader!./img/syntax2.png')} />
+
+---
+
+<Image src={require('file-loader!./img/syntax3.png')} />
+
+---
+
+export default Layout
+
+## Elm is small! 🤏🏼
+
+<Image src={require('file-loader!./img/elm-cheat.png')} />
 
 ---
 
