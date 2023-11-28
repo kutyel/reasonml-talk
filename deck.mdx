@@ -35,6 +35,7 @@ export default Layout
 `$ whoami`
 
 ---
+export default Layout
 
 <Image src={require('file-loader!./img/me.png')} />
 
@@ -74,15 +75,17 @@ export default Layout
 ---
 export default Layout
 
-<Image src={require('file-loader!./img/syntax1.png')} />
+<img width="1500px" src={require('file-loader!./img/syntax1.png')} />
 
 ---
+export default Layout
 
-<Image src={require('file-loader!./img/syntax2.png')} />
+<img width="1500px" src={require('file-loader!./img/syntax2.png')} />
 
 ---
+export default Layout
 
-<Image src={require('file-loader!./img/syntax3.png')} />
+<img width="1500px" src={require('file-loader!./img/syntax3.png')} />
 
 ---
 
@@ -245,7 +248,7 @@ switch (path) {
 
 export default Layout
 
-## React with Reason! ⚛️
+## The Elm Architecture (TEA) 🍵
 
 ---
 
@@ -312,7 +315,14 @@ Let's see what happens if we don't use `option()`...
 
 export default Layout
 
-### DEMO time! 🐈⏱
+### Downsides of Elm...
+
+<Notes>
+  <li>Only Frontend</li>
+  <li>Not really FFI (Foreign Function Interface)</li>
+  <li>Small and niche... (not mainstream)</li>
+  <li>Weird syntax for beginners...</li>
+</Notes>
 
 ---
 
@@ -332,45 +342,53 @@ export default Layout
 
 export default Layout
 
-```reason
-<>
-  <h1>
-    <a href="/" onClick={navigate(Base)}> {React.string("Catstagram")} </a>
-  </h1>
-  {switch (state) {
-  | Error => <Error />
-  | Loading => <Spinner />
-  | Loaded(route, posts) =>
-    switch (route) {
-    | Base => <Grid posts dispatch navigate />
-    | Detail(postId) => <Single posts postId dispatch navigate />
+```reason Real World Example! 🌎
+type alias Model =
+    { xtoken : XToken
+    , today : Maybe Date
+    , pageModel : PageModel
     }
-  }}
-</>;
+
+
+type PageModel
+    = Editor EditorModel
+    | Loading LoadingModel
+    | Successful SuccessfulModel
+    | Failure FailureModel
+    | NoDataYet
 ----
 * > Coding suddenly becomes modelling your data with the proper data structure!!
-5,9 > Pattern match the universe! 🤓
-6,7,10,11 > Where are the imports?? EVERY FILE IS A MODULE! 📦
 ```
 
 ---
-
 export default Split
 
-## Let's talk about Hooks! 🎣
+## Compiler Error Messages! 🤩
 
-![hook](https://static.diariouno.com.ar/adjuntos/212/imagenes/001/001/0001001099.jpg)
+<img src={require('file-loader!./img/error1.webp')} />
 
 ---
-
 export default Layout
 
-## Algebraic Effects!
+## Compiler Error Message: Type Mismatch 💔
 
-![effects](https://overreacted.io/static/5fb19385d24afb94180b6ba9aeb2b8d4/79ad4/effects.jpg)
+<img width="1000px" src={require('file-loader!./img/error2.png')} />
 
 ---
+export default Layout
 
+## Compiler Error: Typo Checking! 🐛
+
+<img width="800px" src={require('file-loader!./img/error3.png')} />
+
+---
+export default Layout
+
+## Compiler Error: Missing Patterns! 🪩
+
+<img width="1000px" src={require('file-loader!./img/error4.png')} />
+
+---
 export default Layout
 
 ```reason Use your favourite hooks! 🥰
@@ -409,22 +427,21 @@ let make = () => {
 
 export default Layout
 
+## Nice Editor Integration!
+
+---
+
+export default Layout
+
 ## Honorable Mentions:
 
 ---
 
 export default Layout
 
-`https://github.com/cristianoc/genType`
+`elm-community/webgl`
 
-<iframe
-  width="1024"
-  height="600"
-  src="https://www.youtube.com/embed/EV12EbxCPjM"
-  frameborder="0"
-  allow="autoplay; encrypted-media"
-  allowfullscreen
-></iframe>
+![elm-webgl](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dSY9TyIITI2jd0sJTgwbUQ.gif)
 
 _"Type once, use forever!" -Cristiano Calcagno_
 
@@ -432,9 +449,9 @@ _"Type once, use forever!" -Cristiano Calcagno_
 
 export default Layout
 
-`https://github.com/jaredly/gravitron`
+`ianmackenzie/elm-3d-scene`
 
-![gravitron](https://github.com/jaredly/gravitron/raw/master/gameplay.gif)
+![elm-3d-scene](https://ianmackenzie.github.io/elm-3d-scene/images/1.0.0/hable-filmic-tone-mapping-bright.png)
 
 A game in Reason that compiles to **native** iOS and **native** Android! 😱
 
