@@ -1,4 +1,4 @@
-import { Image, Notes } from 'mdx-deck'
+import { Image, Notes, Appear } from 'mdx-deck'
 import { dark } from 'mdx-deck/themes'
 import Footer from 'mdx-deck-footer'
 import { Split as S } from 'mdx-deck/layouts'
@@ -59,15 +59,27 @@ export default Layout
   <li>Friendly error messages</li>
   <li>Small subset of Haskell, simpler than JavaScript</li>
   <li>Static Types, pure Functional programming</li>
-  <li>Algebraic Data Types and pattern matching!</li>
   <li>NO RUNTIME ERRORS!</li>
   <li>Interop via ports/flags and web components</li>
   <li>Great tooling and community</li>
-  <li>Amazing type inference (ML family), sorry TypeScript...</li>
 </Notes>
 
----
 
+---
+export default Layout
+
+#  Elm is a pure functional programming language
+
+<Appear>
+  <li><i>This means no uncontrolled side-effects</i></li>
+  <li>Elm has eager evaluation (unlike Haskell which is <i>lazy</i>)</li>
+  <li><strong>NO mutability 💃🏻</strong></li>
+  <li>Algebraic Data Types and pattern matching! 👑</li>
+  <li>Static Types with AMAZING type inference (ML family), sorry TypeScript...</li>
+  <li>Resilient, maintainable, scalable, testable code</li>
+</Appear>
+
+---
 export default Layout
 
 ## JavaScript vs. Elm Cheatsheet
